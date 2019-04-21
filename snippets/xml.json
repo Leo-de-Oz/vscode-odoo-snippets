@@ -307,6 +307,21 @@
         ],
         "description": "Create new Action"
     },
+    "odoo_action_server": {
+        "prefix": "oacts",
+        "body": [
+            "<!-- ${1:model_name} action server -->",
+            "<record id=\"${1:model_name}_action\" model=\"ir.actions.server\">",
+            "\t<field name=\"name\">${2:name}</field>",
+            "\t<field name=\"model_id\" ref=\"model_${1:model_name}\" />",
+            "\t<field name=\"code\">",
+            "\t\t\t<!-- Add Text Here -->",
+            "\t\t\taction=model.${3:method_name}()",
+            "\t</field>",
+            "</record>"
+        ],
+        "description": "Create New Server Action"
+    },
     "odoo_notebook": {
         "prefix": "onote",
         "body": [
@@ -408,7 +423,7 @@
         "body": [
             "<?xml version='1.0' encoding='utf-8'?>",
             "<odoo>",
-            "\t<data noupdate=\"${1:1}\">",
+            "\t<data>",
             "\t\t<!-- Add you code here -->",
             "\t\t${0}",
             "\t</data>",
@@ -424,5 +439,26 @@
             "</header>"
         ],
         "description": "Create Header with Status Bar"
+    },
+    "odoo_attrs": {
+        "prefix": "oattrs",
+        "body": [
+            "attrs={'${1:prop}':[('${2:field}','${3:operator}','${4:value}')]}"
+        ],
+        "description": "Create Attrs Template"
+    },
+    "odoo_button_primary": {
+        "prefix": "obutton",
+        "body": [
+            "<button string=\"${1:string}\" name=\"${2:name}\" type=\"object\" class=\"${3:class}\"/>"
+        ],
+        "description": "Create Button"
+    },
+    "odoo_button_cancel": {
+        "prefix": "obutton",
+        "body": [
+            "<button string=\"${1:Cancelar}\" name=\"cancel\" special=\"cancel\" class=\"oe_link oe_inline\"/>"
+        ],
+        "description": "Create Cancel Button"
     }
 }
