@@ -36,9 +36,10 @@
     "odoo_imports": {
         "prefix": "oimp",
         "body": [
+            "# -*- coding: utf-8 -*-",
             "from odoo import api, fields, models, _",
             "from odoo.exceptions import UserError,ValidationError",
-            "\n\n",
+            "\n",
             "$0"
         ],
         "description": "Create New Odoo Model"
