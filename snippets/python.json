@@ -36,7 +36,8 @@
     "odoo_imports": {
         "prefix": "oimp",
         "body": [
-            "from odoo import api, fields, models, exceptions",
+            "from odoo import api, fields, models, _",
+            "from odoo.exceptions import UserError,ValidationError",
             "\n\n",
             "$0"
         ],
@@ -164,7 +165,7 @@
     "odoo_field_selection": {
         "prefix": "ofsel",
         "body": [
-            "${1:new_field} = fields.Selection(string='${2}', selection=[('${3}', '${4}'), ('${5}', '${6}'),])",
+            "${1:new_field} = fields.Selection([('${2}', '${3}'), ('${4}', '${5}'),], string='${6}')",
             "$0"
         ],
         "description": "Add new field of type Selection"
@@ -257,16 +258,15 @@
         ],
         "description": "Add a Constrains method"
     },
-    "odoo_return_model": {
-        "prefix": "oretm",
+    "odoo_return_action": {
+        "prefix": "oreta",
         "body": [
             "return {",
-			"\t'name':'${1:name_action}'",
-			"\t'type': 'ir.actions.act_window'",
-			"\t'res_model': '${2:model_name}'",
-			"\t'view_mode': 'form'",
-			"\t'view_type': 'form'",
-			"\t'target': '${3:type}'",
+            "\t'name':'${1:name_action}',",
+            "\t'type': 'ir.actions.act_window',",
+            "\t'res_model': '${2:model_name}',",
+            "\t'view_mode': 'form',",
+            "\t'target': '${3:type}',",
             "}",
             "$0"
         ],

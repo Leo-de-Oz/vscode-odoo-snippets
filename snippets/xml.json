@@ -295,7 +295,6 @@
             "\t<field name=\"type\">ir.actions.act_window</field>",
             "\t<field name=\"res_model\">${1:model.name}</field>",
             "\t<field name=\"view_mode\">tree,form</field>",
-            "\t<field name=\"view_type\">form</field>",
             "\t<field name=\"help\" type=\"html\">",
             "\t\t<p class=\"oe_view_nocontent_create\">",
             "\t\t\t<!-- Add Text Here -->",
@@ -314,6 +313,7 @@
             "<record id=\"${1:model_name}_action\" model=\"ir.actions.server\">",
             "\t<field name=\"name\">${2:name}</field>",
             "\t<field name=\"model_id\" ref=\"model_${1:model_name}\" />",
+            "\t<field name=\"state\">code</field>",
             "\t<field name=\"code\">",
             "\t\t\t<!-- Add Text Here -->",
             "\t\t\taction=model.${3:method_name}()",
@@ -396,6 +396,18 @@
         ],
         "description": "Add Odoo button"
     },
+    "odoo_group": {
+        "prefix": "ogroup",
+        "body": [
+            "<record id=\"group_${1:group_id}\" model=\"res.groups\">",
+            "\t<field name=\"name\">${2:label_name}</field>",
+            "\t<field name=\"category_id\" ref=\"${4:module}.${3:categ_id}\"/>",
+            "\t<field name=\"implied_ids\" eval=\"[(4, ref('${4:module}.${5:implied_group}'))]\"/>",
+            "\t<field name=\"users\" eval=\"[(4, ref('base.user_root')), (4, ref('base.user_admin'))]\"/>",
+            "</record>"
+        ],
+        "description": "Add record group template"
+    },
     "odoo_button_box": {
         "prefix": "obtnbox",
         "body": [
@@ -443,19 +455,19 @@
     "odoo_attrs": {
         "prefix": "oattrs",
         "body": [
-            "attrs={'${1:prop}':[('${2:field}','${3:operator}','${4:value}')]}"
+            "attrs=\"{'${1:prop}':[('${2:field}','${3:operator}','${4:value}')]}\""
         ],
         "description": "Create Attrs Template"
     },
     "odoo_button_primary": {
-        "prefix": "obutton",
+        "prefix": "obtnp",
         "body": [
-            "<button string=\"${1:string}\" name=\"${2:name}\" type=\"object\" class=\"${3:class}\"/>"
+            "<button string=\"${1:string}\" name=\"${2:name}\" type=\"object\" class=\"${3:class}\" icon=\"${4:class}\"/>"
         ],
         "description": "Create Button"
     },
     "odoo_button_cancel": {
-        "prefix": "obutton",
+        "prefix": "obtnc",
         "body": [
             "<button string=\"${1:Cancelar}\" name=\"cancel\" special=\"cancel\" class=\"oe_link oe_inline\"/>"
         ],
