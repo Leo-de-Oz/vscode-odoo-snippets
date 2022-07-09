@@ -10,7 +10,6 @@
             "\t\t<form string=\"${3}\">",
             "\t\t\t<sheet>",
             "\t\t\t\t<group>",
-            "\t\t\t\t\t<!-- Add your fields here -->",
             "\t\t\t\t\t$0",
             "\t\t\t\t</group>",
             "\t\t\t</sheet>",
@@ -29,7 +28,6 @@
             "\t<field name=\"model\">${1:model.name}</field>",
             "\t<field name=\"inherit_id\" ref=\"${3:base_module}.${2:view_id}\"/>",
             "\t<field name=\"arch\" type=\"xml\">",
-            "\t\t<!-- Add your xpath here -->",
             "\t\t$0",
             "\t</field>",
             "</record>"
@@ -45,7 +43,6 @@
             "\t<field name=\"model\">${1:first.name}</field>",
             "\t<field name=\"arch\" type=\"xml\">",
             "\t\t<tree>",
-            "\t\t\t<!-- Add your fields here -->",
             "\t\t\t$0",
             "\t\t</tree>",
             "\t</field>",
@@ -62,7 +59,6 @@
             "\t<field name=\"model\">${1:model.name}</field>",
             "\t<field name=\"inherit_id\" ref=\"${3:base_module}.${2:view_id}\"/>",
             "\t<field name=\"arch\" type=\"xml\">",
-            "\t\t<!-- Add your xpath here -->",
             "\t\t$0",
             "\t</field>",
             "</record>"
@@ -78,7 +74,6 @@
             "\t<field name=\"model\">${1:first.name}</field>",
             "\t<field name=\"arch\" type=\"xml\">",
             "\t\t<search string=\"${3:Search Description}\">",
-            "\t\t\t<!-- Add your fields here -->",
             "\t\t\t$0",
             "\t\t</search>",
             "\t</field>",
@@ -95,7 +90,6 @@
             "\t<field name=\"model\">${1:model.name}</field>",
             "\t<field name=\"inherit_id\" ref=\"${3:base_module}.${2:view_id}\"/>",
             "\t<field name=\"arch\" type=\"xml\">",
-            "\t\t<!-- Add your xpath here -->",
             "\t\t$0",
             "\t</field>",
             "</record>"
@@ -111,7 +105,6 @@
             "\t<field name=\"model\">${1:first.name}</field>",
             "\t<field name=\"arch\" type=\"xml\">",
             "\t\t<graph string=\"${3:Graph Description}\">",
-            "\t\t\t<!-- Add your fields here -->",
             "\t\t\t$0",
             "\t\t</graph>",
             "\t</field>",
@@ -128,7 +121,6 @@
             "\t<field name=\"model\">${1:model.name}</field>",
             "\t<field name=\"inherit_id\" ref=\"${3:base_module}.${2:view_id}\"/>",
             "\t<field name=\"arch\" type=\"xml\">",
-            "\t\t<!-- Add you xpath here -->",
             "\t\t$0",
             "\t</field>",
             "</record>"
@@ -144,7 +136,6 @@
             "\t<field name=\"model\">${1:first.name}</field>",
             "\t<field name=\"arch\" type=\"xml\">",
             "\t\t<pivot string=\"${3:Pivot Description}\">",
-            "\t\t\t<!-- Add your fields here -->",
             "\t\t\t$0",
             "\t\t</pivot>",
             "\t</field>",
@@ -161,7 +152,6 @@
             "\t<field name=\"model\">${1:model.name}</field>",
             "\t<field name=\"inherit_id\" ref=\"${3:base_module}.${2:view_id}\"/>",
             "\t<field name=\"arch\" type=\"xml\">",
-            "\t\t<!-- Add you xpath here -->",
             "\t\t$0",
             "\t</field>",
             "</record>"
@@ -177,7 +167,6 @@
             "\t<field name=\"model\">${1:first.name}</field>",
             "\t<field name=\"arch\" type=\"xml\">",
             "\t\t<kanban string=\"${3:Kanban Description}\">",
-            "\t\t\t<!-- Add your fields here -->",
             "\t\t\t$0",
             "\t\t</kanban>",
             "\t</field>",
@@ -194,7 +183,6 @@
             "\t<field name=\"model\">${1:model.name}</field>",
             "\t<field name=\"inherit_id\" ref=\"${3:base_module}.${2:view_id}\"/>",
             "\t<field name=\"arch\" type=\"xml\">",
-            "\t\t<!-- Add you xpath here -->",
             "\t\t$0",
             "\t</field>",
             "</record>"
@@ -210,7 +198,6 @@
             "\t<field name=\"model\">${1:first.name}</field>",
             "\t<field name=\"arch\" type=\"xml\">",
             "\t\t<calendar string=\"${3:Calendar Description}\" date_start=\"{4}\" mode=\"{6:month}\">",
-            "\t\t\t<!-- Add your fields here -->",
             "\t\t\t$0",
             "\t\t</calendar>",
             "\t</field>",
@@ -227,7 +214,6 @@
             "\t<field name=\"model\">${1:model.name}</field>",
             "\t<field name=\"inherit_id\" ref=\"${3:base_module}.${2:view_id}\"/>",
             "\t<field name=\"arch\" type=\"xml\">",
-            "\t\t<!-- Add you xpath here -->",
             "\t\t$0",
             "\t</field>",
             "</record>"
@@ -243,7 +229,6 @@
             "\t<field name=\"model\">${1:first.name}</field>",
             "\t<field name=\"arch\" type=\"xml\">",
             "\t\t<gantt string=\"${3:Gantt Description}\" date_start=\"{4}\">",
-            "\t\t\t<!-- Add your fields here -->",
             "\t\t\t$0",
             "\t\t</gantt>",
             "\t</field>",
@@ -260,7 +245,6 @@
             "\t<field name=\"model\">${1:model.name}</field>",
             "\t<field name=\"inherit_id\" ref=\"${3:base_module}.${2:view_id}\"/>",
             "\t<field name=\"arch\" type=\"xml\">",
-            "\t\t<!-- Add you xpath here -->",
             "\t\t$0",
             "\t</field>",
             "</record>"
@@ -271,7 +255,6 @@
         "prefix": "oxpath",
         "body": [
             "<xpath expr=\"//${1:field}[@${2:name}='${3:name}']\" position=\"${4:after}\">",
-            "\t<!-- Add your fields here -->",
             "\t$0",
             "</xpath>"
         ],
@@ -296,10 +279,8 @@
             "\t<field name=\"res_model\">${1:model.name}</field>",
             "\t<field name=\"view_mode\">tree,form</field>",
             "\t<field name=\"help\" type=\"html\">",
-            "\t\t<p class=\"oe_view_nocontent_create\">",
-            "\t\t\t<!-- Add Text Here -->",
+            "\t\t<p class=\"oe_view_nocontent_create o_view_nocontent_smiling_face\">",
             "\t\t</p><p>",
-            "\t\t\t<!-- More details about what a user can do with this object will be OK --> ",
             "\t\t</p>",
             "\t</field>",
             "</record>"
@@ -309,15 +290,16 @@
     "odoo_action_server": {
         "prefix": "oacts",
         "body": [
-            "<!-- ${1:model_name} action server -->",
-            "<record id=\"${1:model_name}_action\" model=\"ir.actions.server\">",
-            "\t<field name=\"name\">${2:name}</field>",
-            "\t<field name=\"model_id\" ref=\"model_${1:model_name}\" />",
-            "\t<field name=\"state\">code</field>",
-            "\t<field name=\"code\">",
-            "\t\t\t<!-- Add Text Here -->",
-            "\t\t\taction=model.${3:method_name}()",
-            "\t</field>",
+            "<!-- ${2:model_name} action server -->",
+            "<record id=\"${1:action_name}_srv_action\" model=\"ir.actions.server\">"
+            "\t<field name=\"name\">${4:title}</field>"
+            "\t<field name=\"model_id\" ref=\"${3:module}.model_${2:model_name}\"/>"
+            "\t<field name=\"state\">code</field>"
+            "\t<field name=\"sequence\">1</field>"
+            "\t<field name=\"binding_model_id\" ref=\"${3:module}.model_${2:model_name}\"/>"
+            "\t<field name=\"binding_view_types\">form</field>"
+            "\t<field name=\"binding_type\">${5:type}</field>"
+            "\t<field name=\"code\">action=records.${6:method_name}</field>"
             "</record>"
         ],
         "description": "Create New Server Action"
@@ -327,9 +309,7 @@
         "body": [
             "<notebook>",
             "\t<page string=\"${1}\" name=\"${2}\">",
-            "\t\t<group>",
-            "\t\t\t<field name=\"${3}\"/>",
-            "\t\t</group>",
+            "\t\t<field name=\"${3}\"/>",
             "\t</page>",
             "</notebook>"
         ],
@@ -339,9 +319,7 @@
         "prefix": "opage",
         "body": [
             "<page string=\"${1}\" name=\"${2}\">",
-            "\t<group>",
-            "\t\t<field name=\"${3}\"/>",
-            "\t</group>",
+            "\t<field name=\"${3}\"/>",
             "</page>"
         ],
         "description": "Add new page tag"
@@ -349,24 +327,31 @@
     "odoo_menu_root": {
         "prefix": "omenur",
         "body": [
-            "<!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->",
-            "<menuitem id=\"${1}_menu_root\" name=\"${2}\" sequence=\"${3}\"/>"
+            "<menuitem id=\"${1:id}_menu_root\"",
+            "\tname=\"${2:name}\"",
+            "\tweb_icon=\"${3:module},static/src/img/icon.png\"",
+            "\tsequence=\"${4}\"/>",
         ],
         "description": "Create New Menu Item in the Upper bar"
     },
     "odoo_menu_category": {
         "prefix": "omenuc",
         "body": [
-            "<!-- This Menu Item Must have a parent -->",
-            "<menuitem id=\"${1}_menu_categ\" name=\"${2}\" parent=\"${3}\" sequence=\"${4}\"/>"
+            "<menuitem id=\"${1:id}_menu\"",
+            "\tname=\"${2:name}\"",
+            "\tparent=\"${3:parent}\"",
+            "\tsequence=\"${4}\"/>",
         ],
         "description": "Create New Menu Item for Categories"
     },
     "odoo_menu_action": {
         "prefix": "omenua",
         "body": [
-            "<!-- This Menu Item must have a parent and an action -->",
-            "<menuitem id=\"${1}_menu_act\" name=\"${2}\" parent=\"${3}\" action=\"${4}\" sequence=\"${5}\"/>"
+            "<menuitem id=\"${1:id}_menu_act\"",
+            "\tname=\"${2:name}\"",
+            "\tparent=\"${3:parent}\"",
+            "\taction=\"${4:action}\"",
+            "\tsequence=\"${5}\"/>",
         ],
         "description": "Create New Menu Item for Actions"
     },
@@ -436,7 +421,6 @@
             "<?xml version='1.0' encoding='utf-8'?>",
             "<odoo>",
             "\t<data>",
-            "\t\t<!-- Add you code here -->",
             "\t\t${0}",
             "\t</data>",
             "</odoo>"
@@ -455,9 +439,30 @@
     "odoo_attrs": {
         "prefix": "oattrs",
         "body": [
-            "attrs=\"{'${1:prop}':[('${2:field}','${3:operator}','${4:value}')]}\""
+            "attrs=\"{'${1:prop}': [('${2:field}', '${3:operator}', '${4:value}')]}\""
         ],
         "description": "Create Attrs Template"
+    },
+    "odoo_options": {
+        "prefix": "ooptions",
+        "body": [
+            "options=\"{'no_create': 1}\""
+        ],
+        "description": "Agg options attribute"
+    },
+    "odoo_filter": {
+        "prefix": "ofilter",
+        "body": [
+            "<filter name=\"${1:name}\" string=\"${2:string}\" domain=\"${3:domain}\" context=\"${4:context}\"/>",
+        ],
+        "description": "Agg filter item"
+    },
+    "odoo_company": {
+        "prefix": "ocompany",
+        "body": [
+            "<field name=\"company_id\" options=\"{'no_create': 1}\" groups=\"base.group_multi_company\"/>"
+        ],
+        "description": "Create company field"
     },
     "odoo_button_primary": {
         "prefix": "obtnp",

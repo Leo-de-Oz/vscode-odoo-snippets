@@ -38,7 +38,7 @@
         "body": [
             "# -*- coding: utf-8 -*-",
             "from odoo import api, fields, models, _",
-            "from odoo.exceptions import UserError,ValidationError",
+            "from odoo.exceptions import UserError, ValidationError",
             "\n",
             "$0"
         ],
@@ -47,8 +47,9 @@
     "odoo_model": {
         "prefix": "omod",
         "body": [
-            "\n\nclass ${1:ModuleName}(models.Model):",
+            "\nclass ${1:ModuleName}(models.Model):",
             "\t_name = '${2:module.name}'",
+            "\t_description = '${3:model_desc}'",
             "$0"
         ],
         "description": "Add New Odoo Model"
@@ -56,7 +57,7 @@
     "odoo_inherit_model": {
         "prefix": "omodi",
         "body": [
-            "\n\nclass ${1:ModuleName}(models.Model):",
+            "\nclass ${1:ModuleName}(models.Model):",
             "\t_inherit = '${2:module.name}'",
             "$0"
         ],
@@ -65,8 +66,9 @@
     "odoo_transient_model": {
         "prefix": "otra",
         "body": [
-            "\n\nclass ${1:ModuleName}(models.TransientModel):",
+            "\nclass ${1:ModuleName}(models.TransientModel):",
             "\t_name = '${2:module.name}'",
+            "\t_description = '${3:model_desc}'",
             "$0"
         ],
         "description": "Add New Transient Model"
@@ -74,7 +76,7 @@
     "odoo_inherit_transient_model": {
         "prefix": "otrai",
         "body": [
-            "\n\nclass ${1:ModuleName}(models.TransientModel):",
+            "\nclass ${1:ModuleName}(models.TransientModel):",
             "\t_inherit = '${2:module.name}'",
             "$0"
         ],
@@ -166,7 +168,10 @@
     "odoo_field_selection": {
         "prefix": "ofsel",
         "body": [
-            "${1:new_field} = fields.Selection([('${2}', '${3}'), ('${4}', '${5}'),], string='${6}')",
+            "${1:new_field} = fields.Selection([",
+            "\t('${2}', '${3}'), ",
+            "\t('${4}', '${5}'),],",
+            "\tstring='${6}')",
             "$0"
         ],
         "description": "Add new field of type Selection"
@@ -195,13 +200,21 @@
         ],
         "description": "Add new field of type One2many"
     },
+    "odoo_field_company": {
+        "prefix": "ofcom",
+        "body": [
+            "company_id = fields.Many2one('res.company', string='Compañía', required=True, ",
+            "\tdefault=lambda self: self.env.company)",
+            "$0"
+        ],
+        "description": "Add company field template"
+    },
     "odoo_method_create":{
         "prefix": "omcreate",
         "body":[
             "@api.model",
             "def create(self, values):",
-            "\t# Add code here",
-            "\treturn super(${1:ClassName}, self).create(values)",
+            "\treturn super().create(values)",
             "$0"
         ],
         "description": "Add a method create"
@@ -209,10 +222,8 @@
     "odoo_method_write": {
         "prefix": "omwrite",
         "body": [
-            "@api.multi",
             "def write(self, values):",
-            "\t# Add code here",
-            "\treturn super(${1:ClassName}, self).write(values)",
+            "\treturn super().write(values)",
             "$0"
         ],
         "description": "Add a method write"
@@ -220,10 +231,9 @@
     "odoo_method_unlink": {
         "prefix": "omunlink",
         "body": [
-            "@api.multi",
             "def unlink(self):",
             "\t# Add code here",
-            "\treturn super(${1:ClassName}, self).unlink()",
+            "\treturn super().unlink()",
             "$0"
         ],
         "description": "Add a method unlink"
@@ -254,7 +264,8 @@
         "body": [
             "@api.constrains('${1:field_name}')",
             "def _verify_${1:field_name}(self):",
-            "\tself.${1:field_name} = ''",
+            "\tfor ${2:rec} in self:",
+            "\t\t${3}",
             "$0"
         ],
         "description": "Add a Constrains method"
@@ -263,7 +274,7 @@
         "prefix": "oreta",
         "body": [
             "return {",
-            "\t'name':'${1:name_action}',",
+            "\t'name': '${1:name_action}',",
             "\t'type': 'ir.actions.act_window',",
             "\t'res_model': '${2:model_name}',",
             "\t'view_mode': 'form',",
@@ -271,6 +282,21 @@
             "}",
             "$0"
         ],
-        "description": "Return Create Object"
+        "description": "Return a standard dict action"
+    },
+    "odoo_model_template1": {
+        "prefix": "omodel_tmpl1",
+        "body": [
+            "company_id = fields.Many2one('res.company', string='Compañía', required=True, ",
+            "\tdefault=lambda self: self.env.company)",
+            "name = fields.Char('Nombre', default='Nuevo', required=True, readonly=True, copy=False)",
+            "state = fields.Selection([",
+            "\t('draft', 'Borrador'),",
+            "\t('done', 'Realizado'),], ",
+            "\tstring='Estado', default='draft', required=True, readonly=True, tracking=True, copy=False)",
+            "date = fields.Date('Fecha', required=True, copy=False, default=fields.Date.context_today)",
+            "$0"
+        ],
+        "description": "Create template fields of model"
     }
 }
